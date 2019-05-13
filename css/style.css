@@ -1,0 +1,64 @@
+.page-header, .page-content {
+  margin: auto;
+  width: 75%;
+  box-sizing: border-box;
+  max-width: 50em;
+}
+
+.page-header {
+  text-align: center;
+  padding: 5em 5em 2em;
+}
+
+.passcode-wrapper div {
+  width: 100%;
+  position: relative;
+  border: 1px solid #f2f2f2;
+  border-radius: 13px;
+  padding: 10px 30px 9px 22px;
+  margin-bottom: 20px;
+}
+
+.passcode-wrapper input[type=text],
+.passcode-wrapper input[type=password],
+.passcode-wrapper textarea,
+.passcode-wrapper output {
+  width: 100%;
+  padding: 12px;
+  resize: vertical;
+  display: block;
+  background: transparent;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  outline: none;
+  border: none;
+  overflow: visible;
+}
+
+.account-password {
+  background-color: lightgreen;
+  text-align: center;
+}
+
+.passcode-wrapper label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size: 10px;
+  color: #393939;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.passwd-slogan, .account-domain, .account-username, .account-password {
+  visibility: hidden;
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.8em;
+  position: relative;
+  top: -0.25em;
+  vertical-align: top;
+}
+
