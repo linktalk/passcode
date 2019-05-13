@@ -89,8 +89,8 @@ function generatePassword() {
   window.crypto.subtle.importKey(
     "raw",
     onePasswordStatus.encoder.encode(
-        onePasswordStatus.yourPasscode +
-        onePasswordStatus.yourSlogan),
+        onePasswordStatus.yourPasscode.trim() +
+        onePasswordStatus.yourSlogan.trim()),
     {
       name: "PBKDF2"
     },
@@ -108,8 +108,8 @@ function derivePassword(kdfKey, o) {
     {
       "name": "PBKDF2",
       salt: onePasswordStatus.encoder.encode(
-          onePasswordStatus.accountDomain +
-          onePasswordStatus.accountUsername),
+          onePasswordStatus.accountDomain.trim().toUpperCase() +
+          onePasswordStatus.accountUsername.trim()),
       "iterations": 100000,
       "hash": "SHA-256"
     },
