@@ -87,8 +87,13 @@
   .site-footer {
     margin: 2em;
   }
+
   .passcode-wrapper div {
     margin-bottom: 10px;
+  }
+
+  .passcode-wrapper label {
+    padding: 0;
   }
 }
 
