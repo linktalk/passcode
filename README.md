@@ -1,13 +1,18 @@
 # A password generation service based on PBKDF2.
 
-## Where is It?
-[https://linktalk.github.io/passcode/](https://linktalk.github.io/passcode/)
+## Where is the service?
+[One Passcode | No Password](https://linktalk.github.io/passcode/)
+
+## Where does it come from?
+- I really don't want to use the same password for various accounts.
+- I'm readlly not able to remember so much passwords for each account.
+- I really don't want to remember complicated passwords.
 
 ## What's the benefit?
 - Only one static HTML, no data transfer to server.
 - Only need to remember one simple passcode, and a slogan you prefer
 - Generating password with a mix of letters, numbers and symbols.
-- As if you enter the same parameters, the generated passwords are always the same. 
+- As if you enter the same parameters (passcode, solgan, account domain, account username), the generated passwords are always the same. 
 - There is no need to remember the generated passwords.  Instead, generate, copy and past it for your login.
 
 ## Can I use the code?
