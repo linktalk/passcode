@@ -1,7 +1,7 @@
-# A password generation service based on PBKDF2.
+# Password Derivation
 
 ## Where is the service?
-[One Passcode | No Password](https://linktalk.github.io/passcode/)
+[Password Derivation | One Passcode, No Password](https://linktalk.github.io/passcode/)
 
 ## Where does it come from?
 - I really don't want to use the same password for various accounts.
