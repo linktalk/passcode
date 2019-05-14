@@ -1,5 +1,5 @@
 // Status
-var onePasswordStatus = {
+var pwdStatus = {
   inputMask: 0x00,
   yourPasscode: "",
   yourSlogan: "",
@@ -28,47 +28,47 @@ window.onload = function() {
         return false;
       }
 
-      onePasswordStatus.yourPasscode = this.value;
+      pwdStatus.yourPasscode = this.value;
       show(this, "yourSlogan", 0x01, true);
     };
 
     document.getElementById("yourPasscode")
             .querySelector("input").onblur = function() {
-      if (onePasswordStatus.yourSlogan != this.value) {
+      if (pwdStatus.yourSlogan != this.value) {
         if (!this.checkValidity()) {
           showAlert("Your One Password is invalid: use 6 or more characters");
           return false;
         }
 
-        onePasswordStatus.yourPasscode = this.value;
+        pwdStatus.yourPasscode = this.value;
         show(this, "yourSlogan", 0x01, true);
       }
     };
 
     document.getElementById("yourSlogan")
             .querySelector("input").onchange = function() {
-      onePasswordStatus.yourSlogan = this.value;
+      pwdStatus.yourSlogan = this.value;
       show(this, "accountDomain", 0x02, true);
     };
 
     document.getElementById("accountDomain")
             .querySelector("input").onchange = function() {
-      onePasswordStatus.accountDomain = this.value;
+      pwdStatus.accountDomain = this.value;
       show(this, "accountUsername", 0x04, true);
     };
 
     document.getElementById("accountUsername")
             .querySelector("input").onchange = function() {
-      onePasswordStatus.accountUsername = this.value;
+      pwdStatus.accountUsername = this.value;
       show(this, "accountPassword", 0x08, false);
     };
 };
 
 function show(current, id, mask, hasNextInput) {
   var n = document.getElementById(id);
-  if ((onePasswordStatus.inputMask & mask) == 0x00) {
+  if ((pwdStatus.inputMask & mask) == 0x00) {
     n.style.visibility = "visible";
-    onePasswordStatus.inputMask |= mask;
+    pwdStatus.inputMask |= mask;
   }
 
   if (hasNextInput) {
@@ -77,7 +77,7 @@ function show(current, id, mask, hasNextInput) {
     current.blur();
   }
 
-  if ((onePasswordStatus.inputMask & 0x0F) == 0x0F) {
+  if ((pwdStatus.inputMask & 0x0F) == 0x0F) {
       generatePassword();
   }
 
@@ -88,9 +88,9 @@ function generatePassword() {
   var o = document.getElementById("accountPassword").querySelector("output");
   window.crypto.subtle.importKey(
     "raw",
-    onePasswordStatus.encoder.encode(
-        onePasswordStatus.yourPasscode.trim() +
-        onePasswordStatus.yourSlogan.trim()),
+    pwdStatus.encoder.encode(
+        pwdStatus.yourPasscode.trim() +
+        pwdStatus.yourSlogan.trim()),
     {
       name: "PBKDF2"
     },
@@ -107,9 +107,9 @@ function derivePassword(kdfKey, o) {
   window.crypto.subtle.deriveBits(
     {
       "name": "PBKDF2",
-      salt: onePasswordStatus.encoder.encode(
-          onePasswordStatus.accountDomain.trim().toUpperCase() +
-          onePasswordStatus.accountUsername.trim()),
+      salt: pwdStatus.encoder.encode(
+          pwdStatus.accountDomain.trim().toUpperCase() +
+          pwdStatus.accountUsername.trim()),
       "iterations": 100000,
       "hash": "SHA-256"
     },
@@ -119,7 +119,7 @@ function derivePassword(kdfKey, o) {
     var keyBytes = new Uint8Array(keyArray);
     var devivedPassword = "";
     for (var i = 0; i < keyBytes.byteLength; i++) {
-        devivedPassword += onePasswordStatus.byteMap[keyBytes[i]];
+        devivedPassword += pwdStatus.byteMap[keyBytes[i]];
     }
 
     o.value = devivedPassword;
