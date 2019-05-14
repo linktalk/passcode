@@ -5,8 +5,15 @@
 
 ## Where does it come from?
 - I really don't want to use the same password for various accounts.
-- I'm readlly not able to remember so much passwords for each account.
+- I'm readlly not able to remember so much account passwords.
 - I really don't want to remember complicated passwords.
+
+## What's the solution then?
+1. Choose and remember one simple passcode.
+2. Choose and remember a simple slogna of your own.
+3. Derivate password for each account with the passcode and slogan.
+4. Use the password and forgot it.
+5. Repeat 3-4 if you need the password again.
 
 ## What's the benefit?
 - Only one static HTML, no data transfer to server.
